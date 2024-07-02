@@ -1,0 +1,61 @@
+﻿[
+  {
+    "name": "A ceremonial elven mace",
+    "object": "mace elven ceremonial silver tainted elegant",
+    "type": 0,
+    "matClass": 0,
+    "material": "silver",
+    "weight": 12,
+    "value": 800,
+    "is": [
+      0,
+      1,
+      2
+    ],
+    "affects": {
+      "HITROLL": 3,
+      "DAMROLL": 3
+    },
+    "restricts": [
+      0,
+      1
+    ],
+    "immune": null,
+    "class": "mace",
+    "damage": "4D4",
+    "skill": "blugeons",
+    "condition": null,
+    "apply": null,
+    "wearable": null,
+    "effects": null
+  },
+  {
+    "name": "A metallic belt",
+    "object": "belt metallic",
+    "type": 1,
+    "matClass": 0,
+    "material": "steel",
+    "weight": 8,
+    "value": 250,
+    "is": [
+      3,
+      0,
+      4
+    ],
+    "affects": {
+      "SAVING_SPELL": -1
+    },
+    "restricts": [
+      6,
+      10
+    ],
+    "immune": null,
+    "class": null,
+    "damage": null,
+    "skill": null,
+    "condition": null,
+    "apply": null,
+    "wearable": null,
+    "effects": null
+  }
+]

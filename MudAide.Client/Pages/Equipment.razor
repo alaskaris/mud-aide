@@ -1,0 +1,283 @@
+﻿@page "/equipment"
+@inject HttpClient Http
+
+<PageTitle>Weather</PageTitle>
+
+<h1>Weather</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+@if (_items == null)
+{
+    <p>
+        <em>Loading...</em>
+    </p>
+}
+else
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Object</th>
+            <th>Type</th>
+            <th>MatClass</th>
+            <th>Material</th>
+            <th>Weight</th>
+            <th>Value</th>
+            <th>Class</th>
+            <th>Damage</th>
+            <th>Skill</th>
+            <th>Is</th>
+            <th>Affects</th>
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in _items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Object</td>
+                <td>@item.Type</td>
+                <td>@item.MatClass</td>
+                <td>@item.Material</td>
+                <td>@item.Weight</td>
+                <td>@item.Value</td>
+                <td>@item.Class</td>
+                <td>@item.Damage</td>
+                <td>@item.Skill</td>
+                <td>@string.Join(" ", item.Is.ToArray())</td>
+                <td></td>
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+
+@code {
+    // private WeatherForecast[]? forecasts;
+
+    private Item[]? _items;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
+        //
+        // var item1 = new Item()
+        // {
+        //     Name = "A ceremonial elven mace",
+        //     Object = "mace elven ceremonial silver tainted elegant",
+        //     Type = ItemType.WEAPON,
+        //     MatClass = MaterialClass.metal,
+        //     Material = "silver",
+        //     Weight = 12,
+        //     Value = 800,
+        //     Class = "mace",
+        //     Damage = "4D4",
+        //     Skill = "blugeons",
+        //     Is = new List<IsFlag>() { IsFlag.MAGIC, IsFlag.BLESS, IsFlag.ANTI_GOOD },
+        //     Restricts = new List<RestrictsFlag>() { RestrictsFlag.NOMAGE, RestrictsFlag.NOTHIEF },
+        //     Affects = new Dictionary<AffectsFlag, int>()
+        //     {
+        //         { AffectsFlag.HITROLL , 3},
+        //         { AffectsFlag.DAMROLL , 3}
+        //     }
+        // };
+        //
+        // var item2 = new Item()
+        // {
+        //     Name = "A metallic belt",
+        //     Object = "belt metallic",
+        //     Type = ItemType.WORN,
+        //     MatClass = MaterialClass.metal,
+        //     Material = "steel",
+        //     Weight = 8,
+        //     Value = 250,
+        //     Is = new List<IsFlag>() { IsFlag.HUM, IsFlag.MAGIC, IsFlag.ANTI_EVIL },
+        //     Restricts = new List<RestrictsFlag>() { RestrictsFlag.NOBARBARIAN, RestrictsFlag.NOSHAMAN },
+        //     Affects = new Dictionary<AffectsFlag, int>()
+        //     {
+        //         { AffectsFlag.SAVING_SPELL, -1 }
+        //     }
+        // };
+        //
+        // _items = new[] { item1, item2 };
+        //
+        // await Http.PostAsJsonAsync("whatever", _items);
+
+        _items = await Http.GetFromJsonAsync<Item[]>("sample-data/equipment.json");
+    }
+
+    public class WeatherForecast
+    {
+        public DateOnly Date { get; set; }
+
+        public int TemperatureC { get; set; }
+
+        public string? Summary { get; set; }
+
+        public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
+    }
+
+    public class Item
+    {
+        public string? Name { get; set; }
+        
+        public string? Object { get; set; }
+        
+        public ItemType Type { get; set; } 
+        
+        public MaterialClass MatClass { get; set; } 
+        
+        public string? Material { get; set; }
+        
+        public int? Weight { get; set; }
+        
+        public int? Value { get; set; }
+        
+        public List<IsFlag>? Is { get; set; }
+
+        public Dictionary<AffectsFlag, int>? Affects { get; set; }
+        
+        public List<RestrictsFlag>? Restricts { get; set; }
+        
+        public List<ImmuneFlag>? Immune { get; set; }
+        
+        // For Weapons only
+        
+        public string? Class { get; set; }
+        
+        public string? Damage { get; set; }
+        
+        public string? Skill { get; set; }
+        
+        public string? Condition { get; set; }
+        
+        // For Armor only
+        
+        public int? Apply { get; set; }
+        
+        public string? Wearable { get; set; }
+        
+        public List<EffectFlag>? Effects { get; set; }
+    }
+    
+    public enum ItemType
+    {
+        WEAPON,
+        WORN,
+        ARMOR,
+        TREASURE
+    }
+
+    public enum MaterialClass
+    {
+        metal,
+        natural,
+        leather,
+        cloth,
+        wood
+    }
+
+    public enum IsFlag
+    {
+        MAGIC,
+        BLESS,
+        ANTI_GOOD,
+        HUM,
+        ANTI_EVIL,
+        GLOW,
+        ANTI_NEUTRAL,
+        HOT,
+        INVISIBLE,
+        CURSED,
+        NORENT
+    }
+    
+    public enum AffectsFlag
+    {
+        HITROLL,
+        DAMROLL,
+        RANGED_HITROL,
+        SAVING_SPELL,
+        SAVING_PETRI,
+        RESIST_NEGATI,
+        RESIST_BREATH,
+        MOVE,
+        MOVE_REGEN,
+        HP_REGEN,
+        WIS,
+        CON,
+        STR,
+        INT,
+        DEX,
+        CHA,
+        regeneration,
+        HEALTH,
+        HIT,
+        Experience_gained,
+        healing_done,
+        MEM_FACTOR,
+        ARMOR,
+        skill_turn
+    }
+
+    public enum RestrictsFlag
+    {
+        NOMAGE,
+        NOTHIEF,
+        NOPALADIN,
+        NODRUID,
+        NORANGER,
+        NOWARRIOR,
+        NOBARBARIAN,
+        NOBLACK_ROBE,
+        NORED_ROBE,
+        NOWHITE_ROBE,
+        NOSHAMAN
+    }
+
+    public enum ImmuneFlag
+    {
+        IMMUNE_ELECTRICITY,
+        IMMUNE_HEAT,
+        IMMUNE_ACID
+    }
+
+    public enum EffectFlag
+    {
+        INFRAVISION,
+        DETECT_INVISIBLE,
+        IS_FLYING,
+        DETECT_POISON,
+        SNEAK,
+        HIDE,
+        SLEEP_AWARENESS,
+        SENSE_LIFE,
+        DETECT_MAGIC,
+        SILENCE
+    }
+
+    // Object 'mace elven ceremonial silver tainted elegant'
+    // Item Type: WEAPON
+    //     Mat Class: metal Material: silver
+    //     Weight : 12 Value : 800
+    //
+    // Affects : HITROLL by 3
+    // Affects : DAMROLL by 3
+    // Item is : MAGIC BLESS ANTI_GOOD
+    //     Restricts: NOMAGE NOTHIEF NOPALADIN NODRUID NORANGER NOWARRIOR NOBARBARIAN NOBLACK_ROBE NORED_ROBE NOWHITE_ROBE NOSHAMAN
+    //     Class : mace
+    //     Damage : 4D 4
+    // A ceremonial elven mace requires knowledge of the skill 'bludgeons'.
+    
+    // You feel informed:
+    // Object 'belt metallic'
+    // Item Type: WORN
+    //     Mat Class: metal        Material: steel
+    //     Weight   : 8            Value   : 250
+    //
+    // Affects  : SAVING_SPELL  by -1
+    // Item is  : HUM MAGIC ANTI_EVIL
+    //     Restricts: NOBARBARIAN NOSHAMAN
+}
