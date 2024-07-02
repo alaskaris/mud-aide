@@ -419,13 +419,9 @@ FodyWeavers.xsd
 **/.idea/**/*.iml
 **/.idea/**/contentModel.xml
 **/.idea/**/modules.xml
+**/.idea/**/.gitignore
+**/.idea/**/encodings.xml
 
-*.suo
-*.user
-.vs/
-[Bb]in/
-[Oo]bj/
-_UpgradeReport_Files/
 [Pp]ackages/
 
 Thumbs.db
