@@ -1,1 +1,2 @@
-# mud-aide
+# Mud Aide
+A companion for playing Arctic!
