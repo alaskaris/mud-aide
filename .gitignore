@@ -421,6 +421,8 @@ FodyWeavers.xsd
 **/.idea/**/modules.xml
 **/.idea/**/.gitignore
 **/.idea/**/encodings.xml
+**/.idea/**/indexLayout.xml
+**/.idea/**/vcs.xml
 
 [Pp]ackages/
 
