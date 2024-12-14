@@ -1,6 +1,10 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudAide.Client", "MudAide.Client\MudAide.Client.csproj", "{C729C74A-7167-4C3E-9176-A0CF5D838DFC}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{0F33EBB4-5B89-4D18-988C-BBFDA6B27A82}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{FB2E9CA6-6681-4027-B6D8-05361A629607}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MudAide.Client", "src\MudAide.Client\MudAide.Client.csproj", "{CAF078B1-4A98-4071-9339-CBB8D273A4A8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -8,9 +12,12 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{C729C74A-7167-4C3E-9176-A0CF5D838DFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C729C74A-7167-4C3E-9176-A0CF5D838DFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C729C74A-7167-4C3E-9176-A0CF5D838DFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C729C74A-7167-4C3E-9176-A0CF5D838DFC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CAF078B1-4A98-4071-9339-CBB8D273A4A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CAF078B1-4A98-4071-9339-CBB8D273A4A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CAF078B1-4A98-4071-9339-CBB8D273A4A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CAF078B1-4A98-4071-9339-CBB8D273A4A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{CAF078B1-4A98-4071-9339-CBB8D273A4A8} = {0F33EBB4-5B89-4D18-988C-BBFDA6B27A82}
 	EndGlobalSection
 EndGlobal

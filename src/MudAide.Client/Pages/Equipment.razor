@@ -3,9 +3,9 @@
 
 <PageTitle>Weather</PageTitle>
 
-<h1>Weather</h1>
+<h1>Equipment</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p>Here is a searchable list of equipment found in the game.</p>
 
 @if (_items == null)
 {
@@ -53,6 +53,9 @@ else
         </tbody>
     </table>
 }
+<p>
+    <button name="btnImport" class="btn btn-primary">Import</button>
+</p>
 
 @code {
     // private WeatherForecast[]? forecasts;
@@ -61,50 +64,6 @@ else
 
     protected override async Task OnInitializedAsync()
     {
-        // forecasts = await Http.GetFromJsonAsync<WeatherForecast[]>("sample-data/weather.json");
-        //
-        // var item1 = new Item()
-        // {
-        //     Name = "A ceremonial elven mace",
-        //     Object = "mace elven ceremonial silver tainted elegant",
-        //     Type = ItemType.WEAPON,
-        //     MatClass = MaterialClass.metal,
-        //     Material = "silver",
-        //     Weight = 12,
-        //     Value = 800,
-        //     Class = "mace",
-        //     Damage = "4D4",
-        //     Skill = "blugeons",
-        //     Is = new List<IsFlag>() { IsFlag.MAGIC, IsFlag.BLESS, IsFlag.ANTI_GOOD },
-        //     Restricts = new List<RestrictsFlag>() { RestrictsFlag.NOMAGE, RestrictsFlag.NOTHIEF },
-        //     Affects = new Dictionary<AffectsFlag, int>()
-        //     {
-        //         { AffectsFlag.HITROLL , 3},
-        //         { AffectsFlag.DAMROLL , 3}
-        //     }
-        // };
-        //
-        // var item2 = new Item()
-        // {
-        //     Name = "A metallic belt",
-        //     Object = "belt metallic",
-        //     Type = ItemType.WORN,
-        //     MatClass = MaterialClass.metal,
-        //     Material = "steel",
-        //     Weight = 8,
-        //     Value = 250,
-        //     Is = new List<IsFlag>() { IsFlag.HUM, IsFlag.MAGIC, IsFlag.ANTI_EVIL },
-        //     Restricts = new List<RestrictsFlag>() { RestrictsFlag.NOBARBARIAN, RestrictsFlag.NOSHAMAN },
-        //     Affects = new Dictionary<AffectsFlag, int>()
-        //     {
-        //         { AffectsFlag.SAVING_SPELL, -1 }
-        //     }
-        // };
-        //
-        // _items = new[] { item1, item2 };
-        //
-        // await Http.PostAsJsonAsync("whatever", _items);
-
         _items = await Http.GetFromJsonAsync<Item[]>("sample-data/equipment.json");
     }
 
